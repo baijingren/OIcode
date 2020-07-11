@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int 
-int n;
+const int qwe = 10005;
+int n, a[qwe];
 int main()
 {
     freopen("test.in", "r", stdin);

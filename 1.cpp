@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <bits/stdc++.h>
 using namespace std;
 int n,m,X,Y,Z,id,s,t,u,v;
@@ -58,4 +59,28 @@ int main()
     spfa();
     printf("%.8lf",dis[t]);
     return 0;
+=======
+void dij()
+{
+    while (!q.empty())
+    {
+        int u = q.top();
+        q.pop();
+        if (vis[u])
+        {
+            continue;
+        }
+        vis[u] = true;
+        for (int i = hd[u]; i != -1; i = edge[i].nxt)
+        {
+            int v = edge[i].nxt;
+            if (dis[u] + edge[i].w < dis[v])
+            {
+				secondmin = min;
+				dis[v] = dis[u] + edge[i].w;
+				q.push(NODE(dis[v], v));
+            }
+        }
+    }
+>>>>>>> 54968d54e06c8c200387462b01be1223bac46373
 }
