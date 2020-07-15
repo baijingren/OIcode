@@ -11,6 +11,6 @@ int main()
     {
         scanf("%d", &a[i]);
     }
-
+    
     return 0;
 }
