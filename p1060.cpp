@@ -1,30 +1,28 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 const int qwe = 10005;
 int n, m;
-int a[qwe];
+int a[qwe], w[qwe], dp[qwe];
 int main()
 {
     freopen("test.in", "r", stdin);
     freopen("test.out", "w", stdout);
-    scanf("%d", &n);
-    scanf("%d", &m);
-    for (int i = 0; i < n; i++)
+    scanf("%d%d", &n, &m);
+    for (int i = 1; i <= m; i++)
     {
-        scanf("%d", &a[i]);
+        scanf("%d%d", &a[i], &w[i]);
+        w[i] *= a[i];
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= m; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (int j = n; j >= a[i]; j--)
         {
-            if (1)
-            {
-                f[j] = max(f[j], f[j-])
-            }
-            
+            // if (j >= a[i])
+            // {
+                dp[j] = max(dp[j], dp[j - a[i]] + w[i]);
+            // }
         }
-        
     }
-    
+    printf("%d", dp[n]);
     return 0;
 }

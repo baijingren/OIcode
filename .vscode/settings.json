@@ -22,7 +22,8 @@
         "cmath": "cpp",
         "iostream": "cpp",
         "cstdio": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "type_traits": "cpp"
     },
     "readBook.path": "file:///home/baijingren",
     "readBook.history": "file:///home/baijingren", // 格式化时调整include的顺序（按字母排序）
