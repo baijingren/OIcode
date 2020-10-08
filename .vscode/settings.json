@@ -9,9 +9,10 @@
     "code-runner.executorMap": {
         //"c": "cd $dir && gcc '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc -std=c11 -fexec-charset=GBK && &'$dir$fileNameWithoutExt'",
         //"cpp": "cd $dir && g++ '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc -std=c++17 -fexec-charset=GBK && &'$dir$fileNameWithoutExt'"
-         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt -Wall -g -std=c11 && $dir$fileNameWithoutExt",
-         "cpp": "cd $dir && g++-10 $fileName -o $fileNameWithoutExt -Wall -g -std=c++20 -fexec-charset=GBK && $dir$fileNameWithoutExt",
-         "python": "cd $dir && python3 $fileName"
+         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt -Wall -g -std=c && $dir$fileNameWithoutExt",
+         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt -Wall -g -std=c++11 && $dir$fileNameWithoutExt",
+         "python": "cd $dir && python3 -u $filename"
+        // "python": "cd $dir && $fileName"
     }, // 右键run code时运行的命令；未注释的仅适用于PowerShell（Win10默认），文件名中有空格也可以编译运行；注释掉的适用于cmd（win7默认），PS和bash也能用，但文件名中有空格时无法运行
     "code-runner.saveFileBeforeRun": true, // run code前保存
     "code-runner.preserveFocus": true,     // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
@@ -20,13 +21,15 @@
 
     "C_Cpp.clang_format_sortIncludes": true,
     "files.associations": {
+        "cmath": "cpp",
         "iostream": "cpp",
+        "cstdio": "cpp",
         "random": "cpp",
-        "ostream": "cpp",
-        "chrono": "cpp",
-        "limits": "cpp",
-        "valarray": "cpp"
+        "type_traits": "cpp"
     },
-    "readBook.path": "F:\\白景仁\\编程\\20200222",
-    "readBook.history": "F:\\白景仁\\编程\\20200222", // 格式化时调整include的顺序（按字母排序）
+    "readBook.path": "file:///home/baijingren",
+    "readBook.history": "file:///home/baijingren",
+    "python.linting.pylintEnabled": true,
+    "python.linting.mypyEnabled": false,
+    "python.linting.enabled": true, // 格式化时调整include的顺序（按字母排序）
 }

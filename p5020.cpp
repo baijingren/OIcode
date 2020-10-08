@@ -24,12 +24,13 @@ int main()
 		{
 			if (f[a[i]])
 			{
-				a[i] = 0;
+				//a[i] = 0;
 				d--;
+				continue;
 			}
 			for (int j = a[i]; j <= a[n]; j++)
 			{
-				f[j] = f[j] | f[j - a[i]];
+				f[j] = f[j] | f[j - a[i]];//按位或
 			}
 		}
 		printf("%d\n", d);

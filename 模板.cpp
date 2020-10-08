@@ -2,8 +2,7 @@
 using namespace std;
 
 int main(){
-	freopen("test.in", "r", stdin);
-	freopen("test.out", "w", stdout);
-	return 0;
+    freopen("/home/bai/Desktop/编程/test.in", "r", stdin);
+    freopen("/home/bai/Desktop/编程/test.out", "w", stdout);
+    return 0;
 }
-//d99fdcce04e6653ca7e2feef793fb1c8
