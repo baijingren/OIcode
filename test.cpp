@@ -21,26 +21,8 @@ bool jud(int x, int y)
 int main(){
 	freopen("test.in", "r", stdin);
 	freopen("test.out", "w", stdout);
-    scanf("%d %d %d", &a,&b,&c);
-    for (int i = 1; i <= c; i++)
-    {
-        scanf("%d",&d[i]);
-    }
-    sort(d + 1, d + c + 1);
-    for (int i = 1; i <= c; i++)
-    {
-        e[d[i] - d[1]] = 1;
-        f[d[i] - d[i - 1]] = 1;
-    }
-
-    if (jud(b, d[1]))
-    {
-        printf("1");
-    }
-    else
-    {
-        cout << 0;
-    }
-
+    int s[2];
+    memset(s,0x06,sizeof(s));
+    printf("%d\n%d", s[0], s[1]);
     return 0;
 }

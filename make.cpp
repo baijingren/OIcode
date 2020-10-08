@@ -4,8 +4,11 @@ int main(){
 	freopen("test.in","w",stdout);
 	int x,y;
 	srand(time(NULL));
-	x=rand()%10000;
-	y=rand()%10000;
-	printf("%d %d",x,y);
+	x=rand()%100+900;
+	printf("%d\n", x);
+	for (int i = 1; i <= x; i++)
+	{
+		printf("%d ", rand() % 1000);
+	}
 	return 0;
 }
