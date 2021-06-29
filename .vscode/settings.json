@@ -1,6 +1,6 @@
 {
     "files.defaultLanguage": "cpp", // ctrl+N新建文件后默认的语言
-    "editor.formatOnType": true,  // 输入分号(C/C++的语句结束标识)后自动格式化当前这一行的代码
+    "editor.formatOnType": false,  // 输入分号(C/C++的语句结束标识)后自动格式化当前这一行的代码
     "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
     "editor.acceptSuggestionOnEnter": "on", // 我个人的习惯，按回车时一定是真正的换行，只有tab才会接受Intellisense
     // "editor.snippetSuggestions": "top", // （可选）snippets显示在补全列表顶端，默认是inline
@@ -9,9 +9,10 @@
     "code-runner.executorMap": {
         //"c": "cd $dir && gcc '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc -std=c11 -fexec-charset=GBK && &'$dir$fileNameWithoutExt'",
         //"cpp": "cd $dir && g++ '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc -std=c++17 -fexec-charset=GBK && &'$dir$fileNameWithoutExt'"
-         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt -Wall -g -std=c && $dir$fileNameWithoutExt",
-         "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt -Wall -g -std=c++11 && $dir$fileNameWithoutExt",
-         "python": "cd $dir && python3 -u $filename"
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt -Wall -g -std=c11 && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt -Wall -g -std=c++17 -O2 -lm && $dir$fileNameWithoutExt",
+        "python": "cd $dir && python3 -u $filename",
+        //  "cpp": "cd $dir && g++-10 $fileName -o $fileNameWithoutExt -Wall -g -std=c++20 && $dir$fileNameWithoutExt",
         // "python": "cd $dir && $fileName"
     }, // 右键run code时运行的命令；未注释的仅适用于PowerShell（Win10默认），文件名中有空格也可以编译运行；注释掉的适用于cmd（win7默认），PS和bash也能用，但文件名中有空格时无法运行
     "code-runner.saveFileBeforeRun": true, // run code前保存
