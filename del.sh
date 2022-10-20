@@ -8,7 +8,9 @@ function getdir(){
             getdir $dir_or_file
         else
             if [ -x $dir_or_file ]
-            then rm $dir_or_file
+            then 
+                echo $dir_or_file
+                rm -f $dir_or_file
             fi
         fi  
     done
