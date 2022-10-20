@@ -1,28 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
-    int a, b,c,d[100],e[10000],f[10000];
-bool jud(int x, int y)
+const int N=2e6+10;
+int i,j,n,t,m,ans;
+string str[N];
+set<int> st[N];
+int main()
 {
-	if (x % y == 0)
+	cin>>t;
+	while(t--)
 	{
-		return true;
+		cin>>n>>m;ans=0;
+		for(i=1;i<=n;i++)
+		{
+			cin>>str[i];
+			for(j=1;j<=m;j++)
+			if(str[i][j-1]=='1')st[i+j].insert(i);
+		}
+		for(i=1;i<=n+m;i++)
+		{
+			if(st[i+1].size()==0)continue;
+			int pos=i;ans++;
+			for(j=1;j<=n;j++)
+			{
+				st[j+pos].erase(j);
+				if(st[j+pos].rbegin()!=st[j+pos].rend()&&*st[j+pos].rbegin()>j)pos--;
+				else pos++;
+			}
+		}
+		cout<<ans<<endl;
 	}
-	else if (e[x % y] == 1)
-	{
-		return true;
-	}
-    else if (f[x % y] == 1)
-    {
-        return true;
-    }
+}
 
-    return false;
-}
-int main(){
-	freopen("test.in", "r", stdin);
-	freopen("test.out", "w", stdout);
-    int s[2];
-    memset(s,0x06,sizeof(s));
-    printf("%d\n%d", s[0], s[1]);
-    return 0;
-}

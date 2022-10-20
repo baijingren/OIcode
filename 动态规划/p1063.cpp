@@ -1,8 +1,8 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 const int qwe = 10005;
 int n;
-int a[qwe];
+int a[qwe], f[qwe][qwe];
 int main()
 {
     freopen("test.in", "r", stdin);
@@ -11,13 +11,23 @@ int main()
     for (int i = 1; i <= n; i++)
     {
         scanf("%d", &a[i]);
+        a[i + n] = a[i];
     }
-    for (int i = 1; i <= n; i++)
+    int mx = INT_MIN;
+    for (int i = 2; i < 2 * n; i++)
     {
-        for (int j = 1; j <= n; j++)
+        for (int j = i - 1; i - j < n && j >= 1; j--)
         {
-            if(f[i] = )
+            for (int k = j; k < i; k++)
+            {
+                f[j][i] = max(f[j][i], f[j][k] + f[k + 1][i] + a[j] * a[k + 1] * a[i + 1]);
+            }
+            if (f[j][i] > mx)
+            {
+                mx = f[j][i];
+            }
         }
     }
-        return 0;
+    printf("%d", mx);
+    return 0;
 }

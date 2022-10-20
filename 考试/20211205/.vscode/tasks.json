@@ -1,0 +1,30 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [{
+        "label": "Compile", 
+        "command": "g++",   
+        "args": [
+            "${file}",
+            "-o",    
+            "${fileDirname}/${fileBasenameNoExtension}",
+            "-g",    
+            "-Wall", 
+            "-static-libgcc",     
+            "-fexec-charset=GBK", 
+            "-std=c++11"
+        ], 
+        "type": "process", 
+        "group": {
+            "kind": "build",
+            "isDefault": true 
+        },
+        "presentation": {
+            "echo": true,
+            "reveal": "always", 
+            "focus": false,     
+            "panel": "shared"   
+        }
+    }]
+}
