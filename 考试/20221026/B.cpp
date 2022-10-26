@@ -12,9 +12,9 @@ int main(){
 	cin.tie(nullptr);
 	cout.tie(nullptr);
 	cin>>T;
-	int ans=0;
 	while(T--){
 		cin>>n>>m;
+		int ans=0;
 		int tmp=0;
 		for(int i=1;i<=n;i++){
 			cin>>a[i];
