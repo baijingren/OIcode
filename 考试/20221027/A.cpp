@@ -2,7 +2,7 @@
 using namespace std;
 #define PII pair<int,ll>
 #define ll long long
-const int qwe=1e6+5;
+const int qwe=5e6+5;
 namespace INPUT_SPACE{
 	const int S=(1<<20)+5;char B[S],*H,*T;inline int gc() { if(H==T) T=(H=B)+fread(B,1,S,stdin);return (H==T)?EOF:*H++; }
 	inline unsigned int inn() { unsigned int x,ch;while((ch=gc())<'0'||ch>'9');x=ch^'0';while((ch=gc())>='0'&&ch<='9') x=x*10+(ch^'0');return x; }
