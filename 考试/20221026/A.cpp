@@ -2,18 +2,21 @@
 using namespace std;
 const int qwe=1e6+5;
 int n,len=1;
-int R[qwe];
+double R[qwe];
 char s[qwe];
 stack<char> st;
 stack<double> it;
 // double ans;
 int main(){
-	// freopen("resistance.in","r",stdin);
-	// freopen("resistance.out","w",stdout);
+	freopen("resistance.in","r",stdin);
+	freopen("resistance.out","w",stdout);
 	scanf("%d",&n);
 	for(int i=1;i<=n;i++){
 		scanf("%lf",&R[i]);
 	}
+	// for(int i=1;i<=n;i++){
+	// 	cerr<<R[i]<<' ';
+	// }
 	while(scanf("%s",s+len)!=EOF){
 		len=strlen(s+1)+1;
 	}
@@ -36,7 +39,7 @@ int main(){
 			st.pop();
 		}
 		else if(s[i]>='0' && s[i]<='9'){
-			it.push((R[s[i]-'0']);
+			it.push(R[s[i]-'0']);
 		}
 		else if(s[i]!='R'){
 			st.push(s[i]);
