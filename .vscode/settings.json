@@ -104,5 +104,8 @@
     "readBook.history": "file:///home/baijingren",
     "python.linting.pylintEnabled": true,
     "python.linting.mypyEnabled": false,
-    "python.linting.enabled": true, // 格式化时调整include的顺序（按字母排序）
+    "python.linting.enabled": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "cmake.sourceDirectory": "/home/bai/code/未整理",
+    "cmake.configureOnOpen": false, // 格式化时调整include的顺序（按字母排序）
 }

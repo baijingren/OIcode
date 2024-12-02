@@ -7,8 +7,8 @@ struct Matrix{
     int a[qwe][qwe];
     Matrix operator*(const Matrix &a) const {
         Matrix ans;
-        ans.n=
-        ans.m=
+        ans.n=n;
+        ans.m=a.m;
         for(int i=1;i<=n;i++){
             for(int i=1;i<=m)
         }

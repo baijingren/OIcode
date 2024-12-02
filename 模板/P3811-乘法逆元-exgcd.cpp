@@ -13,6 +13,7 @@ int exgcd(int a,int b,int &x,int &y){
     y=t-(a/b)*y;
     return d;
 }
+
 int main(){
     scanf("%d%d",&n,&p);
     for(int i=1;i<=n;i++){

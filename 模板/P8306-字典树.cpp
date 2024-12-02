@@ -1,58 +1,94 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-const int qwe=3e6+5;
-int n,T,m,id=0;
-char a[qwe],mp[256];
-struct Trie{
-    int tg[qwe],nxt[qwe][63],cnt;
-    void init(){
+const int qwe = 3e6 + 5;
+unsigned int c(char a)
+{
+    if (a >= 'A' && a <= 'Z')
+    {
+        return a - 'A';
+    }
+    else if (a >= 'a' && a <= 'z')
+    {
+        return a - 'a' + 26;
+    }
+    else if (a >= '0' && a <= '9')
+    {
+        return a - '0' + 52;
+    }
+}
+struct Trie
+{
+    int f[qwe][62];
+    int cnt = 0;
+    int v[qwe];
+    void init()
+    {
         for(int i=0;i<=cnt;i++){
-            tg[i]=0;
+            v[i]=0;
             for(int j=0;j<=62;j++){
-                nxt[i][j]=0;
+                f[i][j]=0;
             }
         }
-        cnt=0;
+        cnt = 0;
     }
-    void insert(char *c,int l){
-        int p=0;
-        for(int i=0;i<l;i++){
-            int k=mp[c[i]];
-            if(!nxt[p][k]){
-                nxt[p][k]=++cnt;
+    void add(string s)
+    {
+        int u = 0;
+        int len = s.length();
+        for (int i = 0; i < len; i++)
+        {
+            if (f[u][c(s[i])])
+            {
+                u = f[u][c(s[i])];
             }
-            p=nxt[p][k];
-            tg[p]++;
+            else
+            {
+                f[u][c(s[i])] = ++cnt;
+                u = cnt;
+            }
+            v[u]++;
         }
+        // v[u]++;
     }
-    int query(char *c,int l){
-        int p=0;
-        for(int i=0;i<l;i++){
-            int k=mp[c[i]];
-            if(!nxt[p][k]){
+    int query(string s)
+    {
+        int u = 0;
+        int len = s.length();
+        for (int i = 0; i < len; i++)
+        {
+            if (f[u][c(s[i])])
+            {
+                u = f[u][c(s[i])];
+            }
+            else
+            {
                 return 0;
             }
-            p=nxt[p][k];
         }
-        return tg[p];
+        return v[u];
     }
 } t;
-int main(){
-    scanf("%d",&T);
-    for(char i='a';i<='z';i++) mp[i]=++id;
-	for(char i='A';i<='Z';i++) mp[i]=++id;
-	for(char i='0';i<='9';i++) mp[i]=++id;
-    while(T--){
-        scanf("%d%d ",&n,&m);
+int n, q, T;
+string s;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    cin >> T;
+    while (T--)
+    {
+        cin >> n >> q;
         t.init();
-        for(int i=1;i<=n;i++){
-            scanf("%s",a);
-            t.insert(a,strlen(a));
+        for (int i = 1; i <= n; i++)
+        {
+            cin >> s;
+            t.add(s);
         }
-        for(int i=1;i<=m;i++){
-            scanf("%s",a);
-            int ans=t.query(a,strlen(a));
-            printf("%d\n",ans);
+        for (int i = 1; i <= q; i++)
+        {
+            cin >> s;
+            cout << t.query(s) << '\n';
         }
     }
     return 0;
