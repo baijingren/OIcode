@@ -78,4 +78,6 @@ int main(){
         }
     }
     bfs();
+    cout << ans << endl;
+    return 0;
 }
