@@ -1,46 +1,45 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <ostream>
 using namespace std;
-const int qwe=10005;
-int Q,foy,y;
-int date[]={-4713,1,1};
-int mon[]={0,31,28,31,30,31,30,31,31,30,31,30,31};
-int main(){
-    freopen("/home/bai/code/test.in", "r", stdin);
-    freopen("/home/bai/code/test.out", "w", stdout);
-    scanf("%d", &Q);
-    for(int i=1;i<=Q;i++){
-        unsigned int a;
-        scanf("%d",&a);
-        // cout<<a<<endl;
-        foy=a/1461;
-        a%=1461;
-        date[0]+=4*foy;
-        y=a/365;
-        if(y == 4&&a%365==0){
-            y--;a-=3*365+1;
-        }else{
-            a%=365;
-        }
-        date[0]+=y;
-        for(int i=1;i<=12;i++){
-            if(a>=mon[i]){
-                // cout<<1<<' '<<a<<endl;
-                if(date[0]%4==0||(date[0]<0&&(date[0]+1)%4==0)){
-                    if(i==2){
-                        a-=(mon[i]+1);date[1]++;continue;
-                    }
-                }
-                a-=mon[i];
-                date[1]++;
-            }
-        }
-        date[2]+=a;
-        // cout<<foy<<' '<<date[0]<<' '<<a<<endl;
-        printf("%d %d %d",date[0],date[1],date[2]);
-        if(date[0]<0){
-            printf(" BC");
-        }
-        printf("\n");
+int n;
+struct Date{
+    int year;
+    int month;
+    int day;
+
+    ostream& operator<<(ostream& out) const{
+        out << day << ' ' << month << ' ';
+        if(year > 0) out << year;
+        else out << -year << ' ' << "BC";
+        return out;
     }
-    return 0;
+};
+int month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+int getJDate_1(Date d){
+    int ans = 0;
+    if(d.year < 0){
+        int temp_year = d.year - (-4713);
+        int count = ceil(1.0f * temp_year / 4);
+        ans = temp_year * 365 + count;
+        temp_year = -d.year;
+    
+        if(temp_year % 4 == 1 && d.month > 2){
+            ans += 1;
+        }
+
+        for(int i = 0; i < d.month - 1; i++){
+            ans += month[i];
+        }
+
+        ans += d.day;
+        return ans;
+    }
+    else{
+        return -1;
+    }
+    
+}
+int main(){
+    cin >> n;
+    cout << getJDate_1({-1, 12, 30});
 }
